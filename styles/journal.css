@@ -3,9 +3,19 @@ body {
     color: #ffc8fb;
 }
 
-fieldset {
+form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+fieldset {
+    display: flex;
+    width: 33%;
+}
+
+label {
+    display: flex;
     justify-content: center;
 }
 
