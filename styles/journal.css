@@ -1,8 +1,15 @@
+body {
+    background-image: url(/images/wallhaven-39gogv.jpg);
+    color: #ffc8fb;
+}
+
 fieldset {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 section {
-    padding: 10px;
+    border: blueviolet solid 5px;
+    margin: 30px;
 }
