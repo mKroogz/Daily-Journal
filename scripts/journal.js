@@ -1,1 +1,1 @@
-API.getJournalEntries().then(renderJournalEntries);
+API.getJournalEntries().then(addToDOM.renderJournalEntries);
