@@ -13,3 +13,5 @@ const htmlStuff = {
     
     myEntries: document.querySelector(".entrylog")
 }
+
+export default htmlStuff

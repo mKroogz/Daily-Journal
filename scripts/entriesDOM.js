@@ -1,3 +1,5 @@
+import htmlStuff from "./entryComponent.js"
+
 const addToDOM = {
     renderJournalEntries (entries) {
         entries.forEach(entry => {
@@ -5,3 +7,5 @@ const addToDOM = {
         });
     }
 }
+
+export default addToDOM;
