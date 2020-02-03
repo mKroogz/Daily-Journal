@@ -20,6 +20,13 @@
       "concepts": "NSS and Introductions",
       "entry": "Today we met everyone at NSS",
       "mood": "Good"
+    },
+    {
+      "date": "2020-02-03",
+      "concepts": "Lots of array methods",
+      "entry": "Learned a ton of array manipulation stuff, and finally got daily journal 7 working.",
+      "mood": "Happy",
+      "id": 4
     }
   ]
 }
