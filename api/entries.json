@@ -11,7 +11,7 @@
       "date": "1999-12-31",
       "concepts": "Millenniums",
       "entry": "New millennium at midnight!!!!",
-      "mood": "Excited",
+      "mood": "Falling asleep",
       "id": 2
     },
     {
@@ -19,14 +19,21 @@
       "date": "2020-01-06",
       "concepts": "NSS and Introductions",
       "entry": "Today we met everyone at NSS",
-      "mood": "Good"
+      "mood": "Happy"
     },
     {
       "date": "2020-02-03",
       "concepts": "Lots of array methods",
       "entry": "Learned a ton of array manipulation stuff, and finally got daily journal 7 working.",
-      "mood": "Happy",
+      "mood": "Kiddie pool of despair",
       "id": 4
+    },
+    {
+      "date": "2020-02-12",
+      "concepts": "stuff",
+      "entry": "I was sad doing this",
+      "mood": "Sad",
+      "id": 5
     }
   ]
 }

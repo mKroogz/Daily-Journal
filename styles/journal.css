@@ -1,6 +1,7 @@
 body {
     background-image: url(/images/wallhaven-39gogv.jpg);
     color: #ffc8fb;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif
 }
 
 form {
@@ -10,8 +11,7 @@ form {
 }
 
 fieldset {
-    display: flex;
-    width: 33%;
+    width: 66%;
 }
 
 label {
@@ -19,7 +19,21 @@ label {
     justify-content: center;
 }
 
+.radioMoods {
+    display: inline;
+    margin-right: 8px;
+    /* color: yellow; */
+}
+
 section {
     border: blueviolet solid 5px;
     margin: 30px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+span {
+    background-color: rgba(77, 97, 95, 0.78);
 }
