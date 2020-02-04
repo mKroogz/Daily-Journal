@@ -1,7 +1,7 @@
 import API from "./data.js"
 import addToDOM from "./entriesDOM.js"
 
-API.getJournalEntries().then(addToDOM.renderJournalEntries);
+// API.getJournalEntries().then(addToDOM.renderJournalEntries);
 
 const entryFactory = entry => {
     return {
@@ -26,11 +26,34 @@ const saveEntry = () => {
     }
     if (inputChecker === values.length) {
         const entryObj = entryFactory(values)
-        API.createJournalEntry(entryObj).then(API.getJournalEntries).then(addToDOM.renderJournalEntries)
+        API.createJournalEntry(entryObj)
+        // .then(API.getJournalEntries).then(addToDOM.renderJournalEntries)
     } else {
         alert("At least one of your input fields are empty")
     }
 }
 
+const showByMood = () => {
+    const moodMatch = []
+    let moodValue = ""
+    const radioButtons = document.getElementsByName("mood")
+    radioButtons.forEach(button => {
+        if (button.checked) {
+            moodValue = button.value
+        }
+    })
+    API.getJournalEntries().then(entry => {
+        entry.forEach(mood => {
+            if (mood.mood === moodValue){
+                moodMatch.push(mood)
+            }
+        })
+        addToDOM.renderJournalEntries(moodMatch)
+    })
+}
+
 const saveButton = document.querySelector(".journalRecord")
 saveButton.addEventListener("click", saveEntry)
+
+const moodArea = document.querySelector(".radioField")
+moodArea.addEventListener("click", showByMood)
