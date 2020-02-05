@@ -10,16 +10,16 @@
     {
       "date": "1999-12-31",
       "concepts": "Millenniums",
-      "entry": "New millennium at midnight!!!!",
+      "entry": "New millennium at midnight!",
       "mood": "Falling asleep",
       "id": 2
     },
     {
-      "id": 3,
       "date": "2020-01-06",
       "concepts": "NSS and Introductions",
       "entry": "Today we met everyone at NSS",
-      "mood": "Happy"
+      "mood": "Happy",
+      "id": 3
     },
     {
       "date": "2020-02-03",
