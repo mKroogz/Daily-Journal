@@ -17,6 +17,7 @@ const saveEntry = () => {
     const concepts = document.querySelector("#journalConcepts")
     const entry = document.querySelector("#journalEntry")
     const mood = document.querySelector("#journalMood")
+    const hideyId = document.querySelector("#entryId")
     const values = [date.value, concepts.value, entry.value, mood.value]
     let inputChecker = 0;
     for (let i = 0; i < values.length; i++) {
@@ -26,8 +27,11 @@ const saveEntry = () => {
     }
     if (inputChecker === values.length) {
         const entryObj = entryFactory(values)
-        API.createJournalEntry(entryObj)
-        // .then(API.getJournalEntries).then(addToDOM.renderJournalEntries)
+        if (hideyId.value !== "") {
+            API.editEntry(entryObj, hideyId.value)
+        } else {
+            API.createJournalEntry(entryObj)
+        }
     } else {
         alert("At least one of your input fields are empty")
     }
@@ -40,6 +44,7 @@ const showByMood = () => {
     radioButtons.forEach(button => {
         if (button.checked) {
             moodValue = button.value
+            document.querySelector("#entryId").value = ""
         }
     })
     API.getJournalEntries().then(entry => {
@@ -49,24 +54,50 @@ const showByMood = () => {
             }
         })
         addToDOM.renderJournalEntries(moodMatch)
-        entryDeleteEventListener()
+        entryEventListener()
     })
 }
 
-const entryDeleteEventListener = () => {
+const entryEventListener = () => {
     const entryList = document.querySelector(".entrylog")
-    entryList.addEventListener("click", deleteJournalEntry)
+    entryList.addEventListener("click", deleteOrEditJournalEntry)
 }
 
-const deleteJournalEntry = (event) => {
+const deleteOrEditJournalEntry = (event) => {
     if (event.target.id.startsWith("deleteEntry--")) {
         const entryId = event.target.id.split("--")[1]
         API.deleteEntry(entryId)
             .then(() => {
-                document.querySelector(".entrylog").removeEventListener("click", deleteJournalEntry)
+                document.querySelector(".entrylog").removeEventListener("click", deleteOrEditJournalEntry)
                 showByMood()
             })
+    } else if (event.target.id.startsWith("editEntry--")) {
+        const entryId = event.target.id.split("--")[1]
+        const numberId = Number(entryId)
+        document.querySelector(".entrylog").removeEventListener("click", deleteOrEditJournalEntry)
+        editJournalEntry(numberId)
     }
+}
+
+const editJournalEntry = (objId) => {
+    const entryList = document.querySelector(".entrylog")
+    entryList.innerHTML = ""
+    const date = document.querySelector("#journalDate")
+    const concepts = document.querySelector("#journalConcepts")
+    const entry = document.querySelector("#journalEntry")
+    const mood = document.querySelector("#journalMood")
+    const hideyId = document.querySelector("#entryId")
+    API.getJournalEntries().then(entries => {
+        entries.forEach(journalEntry => {
+            if (journalEntry.id === objId) {
+                date.value = journalEntry.date
+                concepts.value = journalEntry.concepts
+                entry.value = journalEntry.entry
+                mood.value = journalEntry.mood
+                hideyId.value = journalEntry.id
+            }
+        })
+    })
 }
 
 const saveButton = document.querySelector(".journalRecord")

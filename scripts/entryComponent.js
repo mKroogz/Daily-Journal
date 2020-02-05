@@ -9,6 +9,7 @@ const htmlStuff = {
         ${this.element("div", `Entry: ${jEntry.entry}`, "entryText")}
         ${this.element("div", `Mood: ${jEntry.mood}`, "mood")}
         <button type="button" class="deleteButton" id="deleteEntry--${jEntry.id}">Delete</button>
+        <button type="button" class="editButton" id="editEntry--${jEntry.id}">Edit</button>
         </section>`
     },
     
