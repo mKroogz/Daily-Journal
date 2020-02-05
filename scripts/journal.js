@@ -44,12 +44,29 @@ const showByMood = () => {
     })
     API.getJournalEntries().then(entry => {
         entry.forEach(mood => {
-            if (mood.mood === moodValue){
+            if (mood.mood === moodValue) {
                 moodMatch.push(mood)
             }
         })
         addToDOM.renderJournalEntries(moodMatch)
+        entryDeleteEventListener()
     })
+}
+
+const entryDeleteEventListener = () => {
+    const entryList = document.querySelector(".entrylog")
+    entryList.addEventListener("click", deleteJournalEntry)
+}
+
+const deleteJournalEntry = (event) => {
+    if (event.target.id.startsWith("deleteEntry--")) {
+        const entryId = event.target.id.split("--")[1]
+        API.deleteEntry(entryId)
+            .then(() => {
+                document.querySelector(".entrylog").removeEventListener("click", deleteJournalEntry)
+                showByMood()
+            })
+    }
 }
 
 const saveButton = document.querySelector(".journalRecord")
