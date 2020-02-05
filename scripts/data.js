@@ -12,6 +12,11 @@ const API = {
             },
             body: JSON.stringify(newJournalEntry)
         })
+    },
+    deleteEntry(id){
+        return fetch(`http://localhost:3000/entryLog/${id}`, {
+            method: "DELETE"
+        })
     }
 }
 
