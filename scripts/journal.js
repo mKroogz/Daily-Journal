@@ -3,6 +3,31 @@ import addToDOM from "./entriesDOM.js"
 
 // API.getJournalEntries().then(addToDOM.renderJournalEntries);
 
+const searchInput = document.querySelector(".searchBar")
+
+searchInput.addEventListener("keyup", event => {
+    const keyname = event.key
+  if (keyname === "Enter") {
+    const searchTerm = event.target.value
+    const matches = []
+    API.getJournalEntries().then(entries => {
+        entries.forEach(entry => {
+            const values = Object.values(entry)
+            for (let i = 0; i < values.length; i++) {
+                let stringVal = values[i]
+                if (stringVal === entry.id){
+                    stringVal = entry.id.toString()
+                }
+                if (stringVal.includes(searchTerm)) {
+                    matches.push(entry)
+                    i += values.length;
+                }
+            }
+        })
+        addToDOM.renderJournalEntries(matches)})
+  }
+})
+
 const entryFactory = entry => {
     return {
         "date": entry[0],

@@ -1,6 +1,6 @@
 body {
     background-image: url(/images/wallhaven-39gogv.jpg);
-    color: #ffc8fb;
+    color: #ff47f2;
     font-family: Impact, 'Arial Narrow Bold', sans-serif
 }
 
@@ -8,10 +8,11 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
-fieldset {
-    width: 66%;
+form fieldset {
+    width: 40%;
 }
 
 label {
@@ -22,11 +23,10 @@ label {
 .radioMoods {
     display: inline;
     margin-right: 8px;
-    /* color: yellow; */
 }
 
 section {
-    border: blueviolet solid 5px;
+    border: #8400ff solid 5px;
     margin: 30px;
 }
 
@@ -36,4 +36,17 @@ button {
 
 span {
     background-color: rgba(77, 97, 95, 0.78);
+}
+
+.lowerBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radioField {
+    width: 40%;
+}
+
+.searchBar {
+    width: 40%;
 }
