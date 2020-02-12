@@ -27,15 +27,8 @@
             <textarea name="journalEntry" id="journalEntry" cols="34" rows="5"></textarea>
         </fieldset>
 
-        <fieldset>
-            <label for="journalMood">Mood</label>
-            <select name="journalMood" id="journalMood">
-                <option value="Happy">Happy</option>
-                <option value="Sad">Sad</option>
-                <option value="Frustrated">Frustrated</option>
-                <option value="Falling asleep">Falling asleep</option>
-                <option value="Kiddie pool of despair">Kiddie pool of despair</option>
-            </select>
+        <fieldset class="journalMoods">
+            
         </fieldset>
 
         <input type="hidden" id="entryId" value="" />
@@ -50,13 +43,9 @@
             <legend>Filter Journal Entries by Mood</legend>
             <label class="radioMoods" for="happy"><span>Happy</span>
             <input type="radio" id="happy" name="mood" value="Happy"></label>
-            <label class="radioMoods" for="sad"><span>Sad</span>
-            <input type="radio" id="sad" name="mood" value="Sad"></label>
-            <label class="radioMoods" for="frustrated"><span>Frustrated</span>
-            <input type="radio" id="frustrated" name="mood" value="Frustrated"></label>
             <label class="radioMoods" for="fallingAsleep"><span>Falling asleep</span>
             <input type="radio" id="fallingAsleep" name="mood" value="Falling asleep"></label>
-            <label class="radioMoods" for="kiddiePoolOfDespair"><span>Kiddie pool</span>
+            <label class="radioMoods" for="kiddiePoolOfDespair"><span>Kiddie pool despair</span>
             <input type="radio" id="kiddiePoolOfDespair" name="mood" value="Kiddie pool of despair"></label>
         </fieldset>
         
