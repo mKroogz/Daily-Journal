@@ -5,28 +5,42 @@
       "date": "2020-01-17",
       "concepts": "JS stuff",
       "entry": "Today we went more into detail on objects, functions and methods in Javascript",
-      "mood": "Happy"
+      "moodId": 1
     },
     {
       "date": "1999-12-31",
       "concepts": "Millenniums",
       "entry": "New millennium at midnight!",
-      "mood": "Falling asleep",
+      "moodId": 2,
       "id": 2
     },
     {
       "date": "2020-01-06",
       "concepts": "NSS and Introductions",
       "entry": "Today we met everyone at NSS",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 3
     },
     {
       "date": "2020-02-03",
       "concepts": "Lots of array methods",
       "entry": "Learned a ton of array manipulation stuff, and finally got daily journal 7 working.",
-      "mood": "Kiddie pool of despair",
+      "moodId": 3,
       "id": 4
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Happy"
+    },
+    {
+      "id": 2,
+      "label": "Falling asleep"
+    },
+    {
+      "id": 3,
+      "label": "Kiddie pool of despair"
     }
   ]
 }

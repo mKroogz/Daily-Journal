@@ -1,7 +1,7 @@
 import API from "./data.js"
 import addToDOM from "./entriesDOM.js"
 
-// API.getJournalEntries().then(addToDOM.renderJournalEntries);
+API.getMoods().then(addToDOM.renderMoods);
 
 const searchInput = document.querySelector(".searchBar")
 
@@ -18,13 +18,24 @@ searchInput.addEventListener("keyup", event => {
                 if (stringVal === entry.id){
                     stringVal = entry.id.toString()
                 }
-                if (stringVal.includes(searchTerm)) {
+                if (stringVal === entry.moodId){
+                    stringVal = entry.moodId.toString()
+                }
+                if (entry.mood.label.includes(searchTerm)){
+                    matches.push(entry)
+                    i += values.length;
+                } else if (stringVal === entry.mood){
+                    i += values.length;
+                } else if (stringVal.includes(searchTerm)) {
                     matches.push(entry)
                     i += values.length;
                 }
+                
             }
         })
         addToDOM.renderJournalEntries(matches)})
+        document.querySelector("#entryId").value = ""
+        entryEventListener()
   }
 })
 
@@ -33,7 +44,7 @@ const entryFactory = entry => {
         "date": entry[0],
         "concepts": entry[1],
         "entry": entry[2],
-        "mood": entry[3]
+        "moodId": entry[3]
     }
 }
 
@@ -74,7 +85,7 @@ const showByMood = () => {
     })
     API.getJournalEntries().then(entry => {
         entry.forEach(mood => {
-            if (mood.mood === moodValue) {
+            if (mood.mood.label === moodValue) {
                 moodMatch.push(mood)
             }
         })
@@ -118,7 +129,7 @@ const editJournalEntry = (objId) => {
                 date.value = journalEntry.date
                 concepts.value = journalEntry.concepts
                 entry.value = journalEntry.entry
-                mood.value = journalEntry.mood
+                mood.value = journalEntry.moodId
                 hideyId.value = journalEntry.id
             }
         })
